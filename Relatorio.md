@@ -15,8 +15,6 @@
 - [ ] Relatórios avançados (CSV, exportação)  
 - [ ] Bots (IA simples)  
 
-*(Marque apenas o que você implementou de fato no código)*
-
 ---
 
 ## 📊 Prints de Execução
