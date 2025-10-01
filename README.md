@@ -1,6 +1,3 @@
-# StartupGame
-
-```markdown
 # 🚀 Startup Game (Refatoração)
 
 ![Java](https://img.shields.io/badge/Java-17+-red)
@@ -28,7 +25,6 @@ Este projeto é uma **refatoração** do código original, aplicando **Programa�
 
 ## 📂 Estrutura do Projeto
 ```
-
 src/
 config/Config.java             # Leitura de game.properties
 model/Startup.java             # Entidade principal
@@ -60,15 +56,17 @@ max.decisoes.por.rodada=3
 
 Clone o repositório, compile e execute o projeto.
 
-```bash
 # Clone o projeto
+```bash
 git clone https://github.com/seu-usuario/startup-game.git
 cd startup-game
-
+```
 # Compile o código
+```
 javac -d out -cp "lib/*" src/**/*.java
-
+```
 # Execute o jogo
+```
 java -cp "out:resources:lib/*" Main
 ```
 
@@ -99,6 +97,7 @@ mvn test
 
 ## 👨‍💻 Autores
 
+João de Sá Calvano Bezerra (JooJdeSaaS)
+
 Projeto desenvolvido como **trabalho final da disciplina de Programação Orientada a Objetos – 2025/2**.
-Quer que eu também prepare um **RELATORIO.md** (como o professor pediu, listando os itens obrigatórios/opcionais implementados), para já deixar pronto no repositório?
 ```
