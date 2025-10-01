@@ -2,7 +2,6 @@
 
 ![Java](https://img.shields.io/badge/Java-17+-red)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 📌 Descrição
 O **Startup Game** é uma simulação em turnos onde o jogador gerencia uma startup tomando decisões estratégicas.  
