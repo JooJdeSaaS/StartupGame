@@ -1,102 +1,75 @@
-# 🚀 Startup Game (Refatoração)
+# Starter — Refatoração Startup Game (POO Avançado)
 
-![Java](https://img.shields.io/badge/Java-17+-red)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+## Sobre o Projeto
+Este é o **starter** do projeto de refatoração do Startup Game.  
+Ele fornece a estrutura mínima com pacotes, classes *stub* e classes VO prontas para uso.  
+Os alunos devem completar o projeto conforme o **Enunciado_Projeto.md**.
 
-## 📌 Descrição
-O **Startup Game** é uma simulação em turnos onde o jogador gerencia uma startup tomando decisões estratégicas.  
-Cada escolha impacta indicadores como **Caixa, Receita, Reputação e Moral**.  
-Ao final das rodadas, o jogo calcula um **score final** e apresenta o ranking entre os participantes.
-
-Este projeto é uma **refatoração** do código original, aplicando **Programação Orientada a Objetos**, **padrões de projeto** e **persistência de dados**.
-
----
-
-## 🛠️ Tecnologias e Conceitos
-- **Java 17+**
-- **Banco de dados H2** (persistência em memória/arquivo)
-- **Padrão Strategy** (decisões)
-- **Value Objects (VOs):** `Dinheiro`, `Percentual`, `Humor`
-- **Configuração via `game.properties`**
-- **Arquitetura modular**: `model`, `actions`, `engine`, `persistence`, `ui`
+⚠️ **Versionamento no Git**:  
+O projeto deve ser versionado em um repositório Git. O professor será incluído como colaborador para verificar commits.  
+**A frequência, autoria e qualidade dos commits serão avaliadas** como parte da nota.
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 ```
 src/
-config/Config.java             # Leitura de game.properties
-model/Startup.java             # Entidade principal
-model/Deltas.java              # Variações de status
-model/vo/                      # Value Objects
-actions/                       # Estratégias de decisão (Strategy)
-persistence/                   # Repositórios e integração com H2
-engine/                        # Motor do jogo
-ui/ConsoleApp.java             # Interface no terminal
-Main.java                      # Ponto de entrada
+  config/Config.java
+  model/Startup.java
+  model/Deltas.java
+  model/vo/Dinheiro.java
+  model/vo/Percentual.java
+  model/vo/Humor.java
+  actions/DecisaoStrategy.java
+  actions/DecisaoFactory.java
+  actions/[estratégias].java
+  persistence/DataSourceProvider.java
+  persistence/[repositories].java
+  engine/GameEngine.java
+  engine/ScoreService.java
+  ui/ConsoleApp.java
+  Main.java
 resources/
-game.properties                # Configurações do jogo
-schema.sql                     # Script para criação de tabelas no H2
-
-````
-
----
-
-## ⚙️ Configuração
-Edite `resources/game.properties` para definir parâmetros do jogo:
-```properties
-total.rodadas=8
-max.decisoes.por.rodada=3
-````
-
----
-
-## ▶️ Como Executar
-
-Clone o repositório, compile e execute o projeto.
-
-# Clone o projeto
-```bash
-git clone https://github.com/seu-usuario/startup-game.git
-cd startup-game
-```
-# Compile o código
-```
-javac -d out -cp "lib/*" src/**/*.java
-```
-# Execute o jogo
-```
-java -cp "out:resources:lib/*" Main
+  game.properties (total.rodadas=8 e max.decisoes.por.rodada=3)
+  schema.sql
 ```
 
 ---
 
-## 🧪 Testes
-
-* Testes escritos com **JUnit 5**
-* Possibilidade de **seed determinística** para resultados reproduzíveis
-
-Execute os testes com:
+## Como Rodar (console)
+Compile e execute o `Main` **incluindo `resources` no classpath**:
 
 ```bash
-mvn test
+# Compilar (Linux/Mac)
+javac -d out $(find src -name "*.java")
+
+# Compilar (Windows PowerShell - exemplo)
+javac -d out (Get-ChildItem -Recurse -Filter *.java | ForEach-Object { $_.FullName })
+
+# Executar (Linux/Mac)
+java -cp out:resources Main
+
+# Executar (Windows PowerShell)
+java -cp "out;resources" Main
 ```
 
 ---
 
-## 📊 Funcionalidades Extras (opcionais)
-
-* 🔔 **Observer**: eventos com listeners
-* ↩️ **Command**: undo/replay de decisões
-* 🏁 **State**: máquina de estados
-* 🤖 **Bots**: decisões automáticas
-* 📑 **Exportação CSV** com métricas e ranking
+## Configurações
+O arquivo `resources/game.properties` já vem configurado com:
+- `total.rodadas=8`
+- `max.decisoes.por.rodada=3`
 
 ---
 
-## 👨‍💻 Autores
+## Banco de Dados
+- **H2 (arquivo)**: URL padrão `jdbc:h2:file:./data/game;AUTO_SERVER=TRUE` (ver `DataSourceProvider`).
+- Execute o SQL de `resources/schema.sql` na inicialização para criar as tabelas necessárias.
 
-João de Sá Calvano Bezerra (JooJdeSaaS)
+---
 
-Projeto desenvolvido como **trabalho final da disciplina de Programação Orientada a Objetos – 2025/2**.
-```
+## Entregáveis
+- Código-fonte completo no **Git** + link do repositório para o professor.
+- `schema.sql` completo com tabelas do H2.
+- `README.md` e `RELATORIO.md` com instruções, evidências e resultados.
+- Commits frequentes e autoria verificada no Git.
