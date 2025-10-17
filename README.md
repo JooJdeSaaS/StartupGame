@@ -25,18 +25,35 @@ Este projeto é uma **refatoração** do código original, aplicando **Programa�
 ## 📂 Estrutura do Projeto
 ```
 src/
-config/Config.java             # Leitura de game.properties
-model/Startup.java             # Entidade principal
-model/Deltas.java              # Variações de status
-model/vo/                      # Value Objects
-actions/                       # Estratégias de decisão (Strategy)
-persistence/                   # Repositórios e integração com H2
-engine/                        # Motor do jogo
-ui/ConsoleApp.java             # Interface no terminal
-Main.java                      # Ponto de entrada
-resources/
-game.properties                # Configurações do jogo
-schema.sql                     # Script para criação de tabelas no H2
+├── config/
+│   └── Config.java
+├── model/
+│   ├── Startup.java
+│   ├── Deltas.java
+│   ├── Rodada.java
+│   ├── DecisaoAplicada.java
+│   └── vo/
+│       ├── Dinheiro.java
+│       ├── Percentual.java
+│       └── Humor.java
+├── actions/
+│   ├── DecisaoStrategy.java
+│   ├── DecisaoFactory.java
+│   ├── MarketingStrategy.java
+│   ├── EquipeStrategy.java
+│   ├── ProdutoStrategy.java
+│   ├── InvestidoresStrategy.java
+│   └── CortarCustosStrategy.java
+├── persistence/
+│   ├── DataSourceProvider.java
+│   ├── StartupRepository.java
+│   ├── RodadaRepository.java
+│   └── DecisaoRepository.java
+├── engine/
+│   ├── GameEngine.java
+│   └── ScoreService.java
+└── ui/
+    └── ConsoleApp.java
 
 ````
 
@@ -99,3 +116,4 @@ mvn test
 João de Sá Calvano Bezerra (JooJdeSaaS)
 
 Projeto desenvolvido como **trabalho final da disciplina de Programação Orientada a Objetos – 2025/2**.
+
